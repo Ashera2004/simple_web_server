@@ -1,29 +1,6 @@
-# EX01 Developing a Simple Webserver
+from http.server import HTTPServer, BaseHTTPRequestHandler
 
-# Date: 24/03/2025
-# AIM:
-To develop a simple webserver to serve html pages and display the configuration details of laptop.
-
-# DESIGN STEPS:
-## Step 1:
-HTML content creation.
-
-## Step 2:
-Design of webserver workflow.pus
-
-## Step 3:
-Implementation using Python code.
-
-## Step 4:
-Serving the HTML pages.
-
-## Step 5:
-Testing the webserver.
-
-# PROGRAM:
-```
-server.py
-
+# HTML content to serve
 content = '''
 <!DOCTYPE html>
 <html lang="en">
@@ -87,7 +64,7 @@ content = '''
             <tr><td>Processor</td><td>Intel Core i5-1340P / AMD Ryzen 7 7730U</td></tr>
             <tr><td>Display</td><td>16.0" WUXGA (1920 x 1200), IPS, Anti-Glare</td></tr>
             <tr><td>Integrated Graphics</td><td>Intel Iris Xe / AMD Radeon Graphics</td></tr>
-            <tr><td>Discrete Graphics</td><td>Optional NVIDIA MX 550</td></tr>
+            <tr><td>Discrete Graphics</td><td>Optional NVIDIA GeForce RTX 2050</td></tr>
             <tr><td>Memory</td><td>Up to 32GB DDR4</td></tr>
             <tr><td>Storage</td><td>Up to 1TB SSD</td></tr>
             <tr><td>Operating System</td><td>Windows 11 Pro</td></tr>
@@ -99,7 +76,6 @@ content = '''
 </body>
 </html>
 '''
-
 
 # HTTP Server class
 class MyServer(BaseHTTPRequestHandler):
@@ -115,15 +91,3 @@ print("Starting server at http://127.0.0.1:8000")
 server_address = ('', 8000)
 httpd = HTTPServer(server_address, MyServer)
 httpd.serve_forever()
-
-
-```
-# OUTPUT:
-
-![alt text](exp1_out_web.png)
-
-
-![alt text](exp1_out_terminal.png)
-
-# RESULT:
-The program for implementing simple webserver is executed successfully.
